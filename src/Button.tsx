@@ -1,10 +1,13 @@
+import s from "./Todolist.module.css";
+
 type ButtonPropsType = {
 	title: string
-	starter?:()=> void
+	onClick?:()=> void
+	className?: string
 }
 
-export const Button = ({title, starter}: ButtonPropsType) => {
+export const Button = ({title, onClick, className}: ButtonPropsType) => {
 	return (
-		<button onClick={starter}>{title}</button>
+		<button className={className} onClick={onClick}>{title}</button>
 	)
 }
