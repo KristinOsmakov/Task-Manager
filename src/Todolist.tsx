@@ -1,53 +1,45 @@
-import React from "react";
+import {FilterValuesType, TaskType} from "./App";
+import {Button} from "./Button";
 
-type TodolistPropsType = {
-    title?: string
-    tasks: Array<TaskType>
+type PropsType = {
+	title: string
+	tasks: TaskType[]
+	removeTask: (taskId: number) => void
+	changeTodoListFilter: (nextFilter: FilterValuesType) => void
 }
-export type TaskType = {
-    id: number
-    title: string
-    isDone: boolean
 
+export const Todolist = ({title, tasks, removeTask, changeTodoListFilter}: PropsType) => {
+
+	return (
+		<div>
+			<h3>{title}</h3>
+			<div>
+				<input/>
+				<Button changeTodoListFilter={changeTodoListFilter} title={'+'}/>
+			</div>
+			{
+				tasks.length === 0
+					? <p>Тасок нет</p>
+					: <ul>
+						{tasks.map((task) => {
+							const removeTaskHandler = () => removeTask(task.id)
+							return <li key={task.id}><input type="checkbox" checked={task.isDone}/>
+								<span>{task.title}</span>
+								<button onClick={removeTaskHandler}>X</button>
+							</li>
+						})}
+					</ul>
+			}
+			<div>
+				{/*<button onClick={()=> changeTodoListFilter("all")}>All</button>*/}
+				{/*<button onClick={()=> changeTodoListFilter("active")}>Active</button>*/}
+				{/*<button onClick={()=> changeTodoListFilter("completed")}>Completed</button>*/}
+
+				<Button changeTodoListFilter={() => {changeTodoListFilter("all")}} title={'All'}/>
+				<Button changeTodoListFilter={() => {changeTodoListFilter("active")}} title={'Active'}/>
+				<Button changeTodoListFilter={() => {changeTodoListFilter("completed")}} title={'Completed'}/>
+
+			</div>
+		</div>
+	)
 }
-export const Todolist = ({title, tasks}: TodolistPropsType) => {
-    // const title = props.title;
-    // const tasks = props.tasks;
-    // const {title, tasks} = props;
-
-    // const tasksList: Array<JSX.Element> = []
-    // for (let i = 0; i < tasks.length; i++) {
-    //     tasksList.push(
-    //         <li>
-    //             <input type="checkbox" checked={tasks[i].isDone}/>
-    //             <span>{tasks[i].title}</span>
-    //         </li>
-    //     )
-    // }
-    const tasksList: Array<JSX.Element> = tasks.map(task => {
-        return (
-            <li>
-                //<input type="checkbox" checked={task.isDone}/>
-                //<span>{task.title}</span>
-            </li>
-        )
-    })
-    return (
-        <div>
-            <h3>{title}</h3>
-            <div>
-                <input/>
-                <button>+</button>
-            </div>
-            <ul>
-                {tasksList}
-            </ul>
-            <div>
-                <button>All</button>
-                <button>Active</button>
-                <button>Completed</button>
-            </div>
-        </div>
-    );
-};
-
