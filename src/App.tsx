@@ -3,13 +3,28 @@ import {Todolist} from "./Todolist";
 import {useState} from "react";
 import {v1} from "uuid";
 import {AddItemForm} from "./AddItemForm";
+import {
+    AppBar,
+    Button,
+    Container,
+    CssBaseline,
+    Grid,
+    IconButton,
+    Paper,
+    Switch,
+    Toolbar,
+    Typography
+} from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu'
+import {MenuButton} from "./MenuButton";
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 export type TaskType = {
     id: string
     title: string
     isDone: boolean
 }
-
+type ThemeMode = 'dark' | 'light'
 export type FilterValuesType = 'all' | 'active' | 'completed'
 
 type TodolistType = {
@@ -131,31 +146,74 @@ function App() {
     // const todolistComponents =
 
         return (
-            <Todolist
-                key={tl.id}
-                title={tl.title}
-                filter={tl.filter}
-                tasks={tasksForTodolist}
-                todolistId={tl.id}
+            <Grid item key={tl.id}>
+                <Paper sx={{p: '15px'}} elevation={8}>
+                    <Todolist
+                        // key={tl.id}
+                        title={tl.title}
+                        filter={tl.filter}
+                        tasks={tasksForTodolist}
+                        todolistId={tl.id}
 
-                addTask={addTask}
-                removeTask={removeTask}
-                changeTaskStatus={changeTaskStatus}
+                        addTask={addTask}
+                        removeTask={removeTask}
+                        changeTaskStatus={changeTaskStatus}
 
-                changeTodolistFilter={changeTodolistFilter}
-                removeTodolist={removeTodolist}
+                        changeTodolistFilter={changeTodolistFilter}
+                        removeTodolist={removeTodolist}
 
-                changeTaskTitle={changeTaskTitle}
-                changeTodolistTitle={changeTodolistTitle}
-            />
+                        changeTaskTitle={changeTaskTitle}
+                        changeTodolistTitle={changeTodolistTitle}
+                    />
+                </Paper>
+            </Grid>
         )
+    })
+    const [themeMode, setThemeMode] = useState<ThemeMode>('light')
+    const changeModeHandler = () => {
+        setThemeMode(themeMode === 'light' ? 'dark' : 'light')
+    }
+    const theme = createTheme({
+        palette: {
+            mode: themeMode,
+            primary: {
+                main: '#087EA4',
+            },
+        },
     })
 
 
     return (
         <div className="App">
-            <AddItemForm addItem={addTodolist} />
-            {todolistsComponents}
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <AppBar position="static">
+                    <Toolbar>
+                        <IconButton color="inherit">
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography variant="h6" color="inherit" component="div" sx={{flexGrow: 1}}>
+                            Todolists
+                        </Typography>
+                        <Switch color={'default'} onChange={changeModeHandler} />
+                        <MenuButton >Login</MenuButton>
+                        <MenuButton >Logout</MenuButton>
+                        <MenuButton
+                        background={theme.palette.primary.dark}
+                        btnColor={theme.palette.primary.contrastText}
+                        >Faq</MenuButton>
+                    </Toolbar>
+                </AppBar>
+                <Container>
+                    <Grid container sx={{p: "10px"}} justifyContent={"center"}>
+                        <AddItemForm addItem={addTodolist} />
+                    </Grid>
+                    <Grid container spacing={4}>
+                        {todolistsComponents}
+                    </Grid>
+                </Container>
+
+            </ThemeProvider>
         </div>
     );
 }

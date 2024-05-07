@@ -1,10 +1,14 @@
 import {FilterValuesType, TaskType} from "./App";
-import {Button} from "./Button";
+// import {Button} from "./Button";
 import s from './Todolist.module.css'
 import {Simulate} from "react-dom/test-utils";
 import error = Simulate.error;
 import {AddItemForm} from "./AddItemForm";
 import {EditableSpan} from "./EditableSpan";
+import {Box, Button, Checkbox, IconButton, List, ListItem} from "@mui/material";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import {filterButtonsContainerSx, getListItemSx} from "./Todolist.styles";
+
 
 type PropsType = {
 	todolistId: string
@@ -56,7 +60,12 @@ export const Todolist = (
 	return (
 		<div>
 			<h3><EditableSpan title={title} changeTitle={changeTodolistTitleHandler}/>
-			<Button title={'X'} onClick={()=>removeTodolist(todolistId)}/>
+			{/*<Button title={'X'} onClick={()=>removeTodolist(todolistId)}/>*/}
+				<IconButton
+					color={"warning"}
+					onClick={()=>removeTodolist(todolistId)} aria-label="delete">
+					<DeleteForeverIcon />
+				</IconButton>
 			</h3>
 
 
@@ -64,7 +73,7 @@ export const Todolist = (
 			{
 				tasks.length === 0
 					? <p>Тасок нет</p>
-					: <ul>
+					: <List>
 						{tasks.map((task) => {
 
 							const removeTaskHandler = () => {
@@ -74,23 +83,71 @@ export const Todolist = (
 							// 	changeStatusIsDone(task.id,event.currentTarget.checked)
 							// }
 
-							return <li key={task.id} className={task.isDone? s.isDone : ''}>
-								<input
-									type="checkbox"
-									checked={task.isDone}
-									onChange={(event)=>changeTaskStatusHandler(task.id,event.currentTarget.checked)}
-								/>
-								<EditableSpan title={task.title} changeTitle={(title)=>changeTaskTitleHandler( title, task.id)}/>
-								<Button onClick={removeTaskHandler} title={'x'}/>
-							</li>
+							return <ListItem
+								sx={getListItemSx(task.isDone)}
+								disablePadding={true}
+								key={task.id}
+								className={task.isDone? s.isDone : ''}>
+								<div>
+									<Checkbox
+										color={'secondary'}
+										checked={task.isDone}
+										onChange={(event)=>changeTaskStatusHandler(task.id,event.currentTarget.checked)}>
+									</Checkbox>
+									<EditableSpan title={task.title} changeTitle={(title)=>changeTaskTitleHandler( title, task.id)}/>
+								</div>
+
+								<IconButton
+									color={"error"}
+									onClick={removeTaskHandler} aria-label="delete">
+									<DeleteForeverIcon />
+								</IconButton>
+							</ListItem>
 						})}
-					</ul>
+					</List>
 			}
-			<div>
-				<Button className= {filter === 'all' ? s.activeFilter : ''} title={'All'} onClick={()=> changeFilterTasksHandler('all')}/>
-				<Button className={filter === 'active' ? s.activeFilter : ''} title={'Active'} onClick={()=> changeFilterTasksHandler('active')}/>
-				<Button className={filter === 'completed' ? s.activeFilter : ''} title={'Completed'} onClick={()=> changeFilterTasksHandler('completed')}/>
-			</div>
+			<Box sx={filterButtonsContainerSx}>
+				<Button
+
+					size={"small"}
+					className= {filter === 'all' ? s.activeFilter : ''}
+					color={filter === 'all' ? "secondary" : "primary"}
+					variant={'contained'}
+					onClick={()=> changeFilterTasksHandler('all')}
+				>
+					All
+					</Button>
+				<Button
+
+					size={"small"}
+					className= {filter === 'active' ? s.activeFilter : ''}
+					color={filter === 'active' ? "secondary" : "primary"}
+					variant={'contained'}
+					onClick={()=> changeFilterTasksHandler('active')}
+				>
+					Active
+				</Button>
+				<Button
+
+					size={"small"}
+					className= {filter === 'completed' ? s.activeFilter : ''}
+					color={filter === 'completed' ? "secondary" : "primary"}
+					variant={'contained'}
+					onClick={()=> changeFilterTasksHandler('completed')}
+				>
+					Completed
+				</Button>
+				{/*<Button*/}
+				{/*	className={filter === 'active' ? s.activeFilter : ''}*/}
+				{/*	title={'Active'}*/}
+				{/*	onClick={()=> changeFilterTasksHandler('active')}*/}
+				{/*/>*/}
+				{/*<Button*/}
+				{/*	className={filter === 'completed' ? s.activeFilter : ''}*/}
+				{/*	title={'Completed'}*/}
+				{/*	onClick={()=> changeFilterTasksHandler('completed')}*/}
+				{/*/>*/}
+			</Box>
 		</div>
 	)
 }
