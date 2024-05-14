@@ -27,7 +27,7 @@ export type TaskType = {
 type ThemeMode = 'dark' | 'light'
 export type FilterValuesType = 'all' | 'active' | 'completed'
 
-type TodolistType = {
+export type TodolistType = {
     id: string
     title: string
     filter: FilterValuesType
@@ -115,13 +115,13 @@ function App() {
     }
 
     const addTodolist = (title: string) => {
-        // const newTodo: TodolistType = {
-        //     id: v1(),
-        //     title: title,
-        //     filter: 'all'
-        // }
-        // setTodolists(([...todolists, newTodo]))
-        // setTasks({...tasks, [newTodo.id]:[]})
+        const newTodo: TodolistType = {
+            id: v1(),
+            title: title,
+            filter: 'all'
+        }
+        setTodolists(([...todolists, newTodo]))
+        setTasks({...tasks, [newTodo.id]:[]})
 
     }
 
@@ -181,8 +181,6 @@ function App() {
             },
         },
     })
-
-
     return (
         <div className="App">
             <ThemeProvider theme={theme}>
