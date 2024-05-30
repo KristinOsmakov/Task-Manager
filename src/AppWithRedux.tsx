@@ -23,6 +23,7 @@ import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksRed
 import {ChangeTodolistFilterAC, ChangeTodolistTitleAC} from "./redusers/todolists-reducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./redusers/store";
+import {TodolistWithRedux} from "./TodolistWithRedux";
 
 export type TaskType = {
     id: string
@@ -105,23 +106,7 @@ function AppWithRedux() {
         return (
             <Grid item key={tl.id}>
                 <Paper sx={{p: '15px'}} elevation={8}>
-                    <Todolist
-                        key={tl.id}
-                        title={tl.title}
-                        filter={tl.filter}
-                        tasks={tasksForTodolist}
-                        todolistId={tl.id}
-
-                        addTask={addTask}
-                        removeTask={removeTask}
-                        changeTaskStatus={changeTaskStatus}
-
-                        changeTodolistFilter={changeTodolistFilter}
-                        removeTodolist={removeTodolist}
-
-                        changeTaskTitle={changeTaskTitle}
-                        changeTodolistTitle={changeTodolistTitle}
-                    />
+                    <TodolistWithRedux todolist={tl}/>
                 </Paper>
             </Grid>
         )
