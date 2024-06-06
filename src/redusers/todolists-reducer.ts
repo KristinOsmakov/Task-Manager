@@ -106,7 +106,7 @@ export const ChangeTodolistFilterAC = (todolistId: string, filter: FilterValuesT
             type: 'CHANGE-TODOLIST-FILTER',
             payload: {
                 todolistID: todolistId,
-                filter: 'active',
+                filter: filter,
             },
         }
     )

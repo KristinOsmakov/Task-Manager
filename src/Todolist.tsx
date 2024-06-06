@@ -8,6 +8,7 @@ import {EditableSpan} from "./EditableSpan";
 import {Box, Button, Checkbox, IconButton, List, ListItem} from "@mui/material";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import {filterButtonsContainerSx, getListItemSx} from "./Todolist.styles";
+import {memo, useCallback} from "react";
 
 
 type PropsType = {
@@ -27,7 +28,7 @@ type PropsType = {
 	changeTodolistTitle: (title: string, todolistId: string) => void
 }
 
-export const Todolist = (
+export const Todolist = memo( (
 	{	title,
 		tasks,
 		filter,
@@ -40,8 +41,9 @@ export const Todolist = (
 		changeTodolistFilter,
 		removeTodolist}: PropsType) => {
 
+	console.log('Todolist')
 	const addTaskHandler = (title: string) => {
-			addTask(title, todolistId)
+		addTask(title, todolistId)
 	}
 	const changeFilterTasksHandler = (filter: FilterValuesType) => {
 		changeTodolistFilter(filter, todolistId)
@@ -150,4 +152,4 @@ export const Todolist = (
 			</Box>
 		</div>
 	)
-}
+})

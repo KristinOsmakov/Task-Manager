@@ -2,7 +2,7 @@
 import * as React from 'react';
 import s from "./AddItemForm.module.css";
 import {Button} from "./Button";
-import {ChangeEvent, KeyboardEvent, useState} from "react";
+import {ChangeEvent, KeyboardEvent, memo, useState} from "react";
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import {IconButton, TextField} from "@mui/material";
@@ -12,28 +12,28 @@ export type AddItemFormPropsType = {
 };
 
 
-export const AddItemForm = ({addItem}: AddItemFormPropsType) => {
-
+export const AddItemForm = memo(({addItem}: AddItemFormPropsType) => {
 
     const [itemTitle, setItemTitle] = useState('')
     const [error, setError] = useState<string | null>(null)
     const changeItemTitleHandler = (event: ChangeEvent<HTMLInputElement>) => {
         setItemTitle(event.currentTarget.value)
-        setError('Title is required')
     }
 
     const addItemHandler = () => {
+
         if(itemTitle.trim()){
             addItem(itemTitle.trim())
             setItemTitle('')
         }
         else{
-            setError(null)
+            setError('Title is required')
         }
 
     }
 
     const addItemOnKeyUpHandler = (event: KeyboardEvent<HTMLInputElement>) => {
+        if (error) setError(null)
         if (event.key === 'Enter') {
             addItemHandler()
         }
@@ -66,4 +66,4 @@ export const AddItemForm = ({addItem}: AddItemFormPropsType) => {
             {error && <div className={s.errorMessage}>{error}</div>}
         </div>
     );
-};
+});
