@@ -3,7 +3,7 @@ import * as React from 'react';
 import {ChangeEvent, memo, useState} from "react";
 import {TextField} from "@mui/material";
 
-type EditableSpanPropsType = {
+export type EditableSpanPropsType = {
     title: string,
     changeTitle: (title: string) => void,
 
@@ -28,10 +28,7 @@ export const EditableSpan = memo(({title, changeTitle}: EditableSpanPropsType) =
                 value={itemTitle}
                 onBlur={offEditMode}
             />
-            // <input value={itemTitle}
-            // onChange={changeItemTitleHandler}
-            //      autoFocus
-            // onBlur={offEditMode}/>
+
             : <span onDoubleClick={onEditMode}>{title}</span>
     );
 });

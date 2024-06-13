@@ -40,12 +40,6 @@ export const AddItemForm = memo(({addItem}: AddItemFormPropsType) => {
     }
     return (
         <div>
-            {/*<input*/}
-            {/*    className={error ? s.error : ''}*/}
-            {/*    value={itemTitle}*/}
-            {/*    onChange={changeItemTitleHandler}*/}
-            {/*    onKeyUp={addItemOnKeyUpHandler}*/}
-            {/*/>*/}
             <TextField
                 label="Enter a title"
                 variant={'outlined'}
