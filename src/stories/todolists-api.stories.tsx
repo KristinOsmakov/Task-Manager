@@ -6,7 +6,7 @@ export default {
     title: 'API',
 }
 
-
+//TODOLISTS
 export const GetTodolists = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
@@ -16,7 +16,6 @@ export const GetTodolists = () => {
     }, [])
     return <div>{JSON.stringify(state)}</div>
 }
-
 export const CreateTodolist = () => {
     const [state, setState] = useState<any>(null)
     useEffect(() => {
@@ -47,4 +46,5 @@ export const UpdateTodolistTitle = () => {
     return <div> {JSON.stringify(state)}</div>
 }
 
+//TASKS
 

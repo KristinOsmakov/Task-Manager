@@ -12,31 +12,51 @@ const instance = axios.create({
     },
 })
 
+type TodolistType = {
+    id: string
+    addedDate: string
+    order: number
+    title: string
+}
+type FieldErrorType = {
+    error: string
+    field: string
+}
+
+type ResponseType<D = {}> = {
+    resultCode: number
+    messages: string[]
+    fieldsErrors: FieldErrorType[]
+    data: D
+}
+
+
+
 export const todolistAPI = {
     updateTodolistAPI(todolistId: string, title: string) {
-        return instance.put(
+        return instance.put<ResponseType>(
             `todo-lists/${todolistId}`,
             { title: title },
             settings
         )
     },
     deleteTodolistAPI(todolistId: string) {
-        return instance.delete(
+        return instance.delete<ResponseType>(
             `todo-lists/${todolistId}`,
             settings
         )
     },
     createTodolistAPI(title: string) {
-        return instance.post(
+        return instance.post<ResponseType<{ item: TodolistType }>>(
             `todo-lists`,
             { title: title },
             settings
         )
     },
     getTodolistsAPI() {
-        return instance.get(
+        return instance.get<TodolistType[]>(
             `todo-lists`,
             settings
         )
-    }
+    },
 }
