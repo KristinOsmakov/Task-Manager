@@ -21,11 +21,11 @@ import {
 } from './state/todolists-reducer'
 import {
     addTaskAC,
-    addTaskTC,
+    addTaskTC, addTodolistTC,
     changeTaskStatusAC,
-    changeTaskTitleAC,
+    changeTaskTitleAC, changeTaskTitleTC,
     removeTaskAC,
-    removeTasksTC, updateTaskStatusTC, updateTaskTC
+    removeTasksTC, removeTodolistsTC, updateTaskStatusTC, updateTaskTC
 } from './state/tasks-reducer';
 import { useDispatch, useSelector } from 'react-redux';
 import {AppRootStateType, useAppDispatch} from './state/store';
@@ -49,39 +49,33 @@ function App() {
     const removeTask = useCallback(function (taskId: string, todolistId: string) {
         dispatch(removeTasksTC(todolistId, taskId))
     }, []);
-
     const addTask = useCallback(function (title: string, todolistId: string) {
         // const action = addTaskAC(title, todolistId);
         dispatch(addTaskTC(todolistId, title));
     }, []);
-
     const changeStatus = useCallback(function (id: string, status: TaskStatuses, todolistId: string) {
         // const action = changeTaskStatusAC(id, status, todolistId);
         dispatch(updateTaskTC(todolistId, id, {status}));
     }, []);
-
     const changeTaskTitle = useCallback(function (id: string, newTitle: string, todolistId: string) {
-        const action = changeTaskTitleAC(id, newTitle, todolistId);
+        // const action = changeTaskTitleAC(id, newTitle, todolistId);
         dispatch(updateTaskTC(todolistId, id, {title: newTitle}));
     }, []);
-
     const changeFilter = useCallback(function (value: FilterValuesType, todolistId: string) {
         const action = changeTodolistFilterAC(todolistId, value);
         dispatch(action);
     }, []);
 
     const removeTodolist = useCallback(function (id: string) {
-        const action = removeTodolistAC(id);
+        const action = removeTodolistsTC(id);
         dispatch(action);
     }, []);
-
     const changeTodolistTitle = useCallback(function (id: string, title: string) {
-        const action = changeTodolistTitleAC(id, title);
+        const action = changeTaskTitleTC(id, title);
         dispatch(action);
     }, []);
-
     const addTodolist = useCallback((title: string) => {
-        const action = addTodolistAC(title);
+        const action = addTodolistTC(title);
         dispatch(action);
     }, [dispatch]);
 
