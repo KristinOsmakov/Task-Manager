@@ -4,28 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3ad157d2-1b7e-47a6-b7d3-79055d644e54" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/app-reducer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ErrorSnackbar/ErrorSnackbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/errorUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/et --hard HEAD~1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddItemForm.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditableSpan.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Task.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/todolists-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/todolists-api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/tasks-reducer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/todolist.thunks.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/todolists-reducer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/state/totolidt.actions.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    <list default="true" id="8f1fb81b-e95a-400d-8146-c120eefb2814" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/auth.api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/Login/Login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/Login/auth.reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/features/PageNotFound/PageNotFound.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../currency_exchange/curEx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../currency_exchange/curEx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,50 +19,49 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 4
+  &quot;associatedIndex&quot;: 6
 }</component>
-  <component name="ProjectId" id="2iozqGjLHsja4ErujO9XRglmApS" />
+  <component name="ProjectId" id="2jmxrMaGJXCFK7GhiVkkPL82Ibx" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Incubator/red",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "ts.external.directory.path": "C:\\Users\\user\\Desktop\\Incubator\\TODOLIST\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/Desktop/ITV/itv/itv2.0_smart-tv.RC&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\user\\Desktop\\Incubator\\VSE JS\\4spr double\\todo16v3.1\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3ad157d2-1b7e-47a6-b7d3-79055d644e54" name="Changes" comment="" />
-      <created>1720171909338</created>
+      <changelist id="8f1fb81b-e95a-400d-8146-c120eefb2814" name="Changes" comment="" />
+      <created>1722006251239</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1720171909338</updated>
-      <workItem from="1720171911851" duration="1034000" />
-      <workItem from="1720185661695" duration="8129000" />
+      <updated>1722006251239</updated>
+      <workItem from="1722006252484" duration="14055000" />
+      <workItem from="1722030344611" duration="1791000" />
     </task>
     <servers />
   </component>
