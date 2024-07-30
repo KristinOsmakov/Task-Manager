@@ -6,6 +6,7 @@ import {
 } from '../../app/app-reducer'
 import {authApi, LoginData} from "../../api/auth.api";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
+import {ClearDataActionType, clearTodosDataAC} from "../TodolistsList/todolists-reducer";
 
 const initialState = {
     isLoggedIn: false,
@@ -91,6 +92,7 @@ export const logoutTC = () => (dispatch: Dispatch<ActionsType>) => {
             if (res.data.resultCode === 0) {
                 dispatch(setIsLoggedInAC(false))
                 dispatch(setAppStatusAC('succeeded'))
+                dispatch(clearTodosDataAC())
             } else {
                 handleServerAppError(res.data, dispatch)
             }
@@ -107,3 +109,4 @@ type ActionsType =
     | ReturnType<typeof setIsInitAC>
     | SetAppStatusActionType
     | SetAppErrorActionType
+    | ClearDataActionType
