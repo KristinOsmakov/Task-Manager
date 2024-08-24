@@ -45,6 +45,10 @@ export type UpdateTaskArgs = {
   model: UpdateDomainTaskModelType,
   todolistId: string
 }
+export type RemoveTaskArgs = {
+  taskId: string,
+  todolistId: string
+}
 
 
 // types
