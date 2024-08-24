@@ -105,7 +105,7 @@ class TestAction<T> {
 }
 
 test("correct task should be added to correct array", () => {
-  const action: TestAction<typeof addTask.fulfilled> = {
+  const action = {
     type: addTask.fulfilled.type,
     payload: {
       task: {
@@ -132,7 +132,7 @@ test("correct task should be added to correct array", () => {
 });
 
 test("status of specified task should be changed", () => {
-  const action: TestAction<typeof updateTask.fulfilled> = {
+  const action = {
     type: updateTask.fulfilled.type,
     payload: {
       taskId: "2",
@@ -145,7 +145,7 @@ test("status of specified task should be changed", () => {
   expect(endState["todolistId2"][1].status).toBe(TaskStatuses.New);
 });
 test("title of specified task should be changed", () => {
-  const action: TestAction<typeof updateTask.fulfilled> = ({
+  const action = ({
     type: updateTask.fulfilled.type,
     payload: {
       taskId: "2",
