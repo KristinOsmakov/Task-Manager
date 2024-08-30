@@ -4,22 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11e6fdac-d365-4335-9a6a-6f4270cdb7d8" name="Changes" comment="Todolist, friday 2, with error in tasks.reducer.test.ts and not api.">
+    <list default="true" id="db5669ef-175c-459d-a296-5d8a32706ab9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/enum/enum.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/enum/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/instance/instance.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/types/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/types/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddItemForm/AddItemForm.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/EditableSpan/EditableSpan.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ErrorSnackbar/ErrorSnackbar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Task/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/Todolist/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/TodolistsList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/tasks.reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/tasks.reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/tasks.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/tasks.reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/todolists-api.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/todolists-tasks.reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/todolists-tasks.reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/todolists.reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/todolists.reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/todolists.reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/todolists.reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/api/authApi.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/api/authApi.types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/model/auth.selectors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/model/authSlice.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/auth/ui/Login.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useAppDispatch.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceWorker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/createAsyncThunk.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/handleServerAppError.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/handleServerNetworkError.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="tsconfig.json" />
-        <option value="TypeScript File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -28,159 +57,40 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
   "associatedIndex": 6
 }]]></component>
-  <component name="ProjectId" id="2l3garoaJSPhLj7cCCXs9Cwpeu4" />
+  <component name="ProjectId" id="2lNIfi6MTm4PsgPVZtSTc4k5qYz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Jest.correct task should be deleted from correct array.executor": "Run",
-    "Jest.status of specified task should be changed.executor": "Run",
-    "Jest.tasks should be added for todolist.executor": "Run",
-    "Jest.title of specified task should be changed.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/user/Desktop/Incubator/TODOLIST",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "C:/Users/user/Desktop/Incubator/TODOLIST/node_modules/react-scripts",
     "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
     "ts.external.directory.path": "C:\\Users\\user\\Desktop\\Incubator\\TODOLIST\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\user\Desktop\Incubator\TODOLIST\src\features\auth\api" />
-      <recent name="C:\Users\user\Desktop\Incubator\TODOLIST\src\features\auth\model" />
-      <recent name="C:\Users\user\Desktop\Incubator\TODOLIST\src\features\auth\ui" />
-      <recent name="C:\Users\user\Desktop\Incubator\TODOLIST\src\features\TodolistsList" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Jest.status of specified task should be changed">
-    <configuration name="correct task should be deleted from correct array" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/features/TodolistsList/tasks.reducer.test.ts" />
-      <test-names>
-        <test-name value="correct task should be deleted from correct array" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="status of specified task should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/features/TodolistsList/tasks.reducer.test.ts" />
-      <test-names>
-        <test-name value="status of specified task should be changed" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="tasks should be added for todolist" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/features/TodolistsList/tasks.reducer.test.ts" />
-      <test-names>
-        <test-name value="tasks should be added for todolist" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="title of specified task should be changed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/features/TodolistsList/tasks.reducer.test.ts" />
-      <test-names>
-        <test-name value="title of specified task should be changed" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Jest.status of specified task should be changed" />
-        <item itemvalue="Jest.title of specified task should be changed" />
-        <item itemvalue="Jest.correct task should be deleted from correct array" />
-        <item itemvalue="Jest.tasks should be added for todolist" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="11e6fdac-d365-4335-9a6a-6f4270cdb7d8" name="Changes" comment="" />
-      <created>1724414244263</created>
+      <changelist id="db5669ef-175c-459d-a296-5d8a32706ab9" name="Changes" comment="" />
+      <created>1725014219871</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1724414244263</updated>
-      <workItem from="1724414251300" duration="26154000" />
+      <updated>1725014219871</updated>
+      <workItem from="1725014228105" duration="1344000" />
     </task>
-    <task id="LOCAL-00001" summary="Todolist, friday 2, 12449">
-      <option name="closed" value="true" />
-      <created>1724423555551</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1724423555551</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Todolist, friday 2, 12449">
-      <option name="closed" value="true" />
-      <created>1724423594997</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1724423594997</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Todolist, friday 2, with error in tasks.reducer.test.ts">
-      <option name="closed" value="true" />
-      <created>1724503557169</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1724503557169</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Todolist, friday 2, with error in tasks.reducer.test.ts and not api.">
-      <option name="closed" value="true" />
-      <created>1724504131983</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1724504131983</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Todolist, friday 2, with error in tasks.reducer.test.ts and not api.">
-      <option name="closed" value="true" />
-      <created>1724504231593</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1724504231593</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Todolist, friday 2, 12449" />
-    <MESSAGE value="Todolist, friday 2, with error in tasks.reducer.test.ts" />
-    <MESSAGE value="Todolist, friday 2, with error in tasks.reducer.test.ts and not api." />
-    <option name="LAST_COMMIT_MESSAGE" value="Todolist, friday 2, with error in tasks.reducer.test.ts and not api." />
   </component>
 </project>
