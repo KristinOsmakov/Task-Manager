@@ -13,13 +13,14 @@ import {
 } from "@mui/material";
 import { Menu } from "@mui/icons-material";
 import { Login } from "features/auth/Login";
-import { initializeApp, logout } from "features/auth/auth.reducer";
+import { authThunks, initializeApp, logout } from "features/auth/auth.reducer";
 import "./App.css";
 import { TodolistsList } from "features/TodolistsList/TodolistsList";
 import { ErrorSnackbar } from "common/components";
 import { useAppDispatch } from "common/hooks";
 import { selectIsLoggedIn } from "features/auth/auth.selectors";
 import { selectAppStatus, selectIsInitialized } from "app/app.selectors";
+import { bindActionCreators } from "@reduxjs/toolkit";
 
 function App() {
   const status = useSelector(selectAppStatus);
@@ -27,10 +28,16 @@ function App() {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const dispatch = useAppDispatch();
-
   useEffect(() => {
-    dispatch(initializeApp());
-  }, []);
+    const init = bindActionCreators(initializeApp, dispatch)
+    init()
+
+    dispatch(initializeApp())
+  }, [])
+
+  // useEffect(() => {
+  //   dispatch(initializeApp());
+  // }, []);
 
   const logoutHandler = useCallback(() => {
     dispatch(logout());

@@ -4,6 +4,7 @@ import { authAPI, LoginParamsType } from "features/auth/auth.api";
 import { clearTasksAndTodolists } from "common/actions";
 import { createAppAsyncThunk, handleServerAppError, handleServerNetworkError } from "common/utils";
 import { Dispatch } from "redux";
+import { thunkTryCatch } from "common/utils/thunk-try-catch";
 
 const slice = createSlice({
   name: "auth",
@@ -40,7 +41,8 @@ export const login = createAppAsyncThunk<{ isLoggedIn: boolean }, LoginParamsTyp
         dispatch(appActions.setAppStatus({ status: "succeeded" }));
         return { isLoggedIn: true };
       } else {
-        handleServerAppError(res.data, dispatch);
+        const isShowError = !res.data?.fieldsErrors?.length
+        handleServerAppError(res.data, dispatch, isShowError);
         return rejectWithValue(res.data);
       }
     } catch (e) {
@@ -71,27 +73,46 @@ export const logout = createAppAsyncThunk<void, void>(
   },
 );
 
-export const initializeApp = createAppAsyncThunk<void, void>(`${slice.name}/initializeApp`,
-  async(_, thunkAPI) => {
-  const {dispatch, rejectWithValue} = thunkAPI
-  try {
+// export const initializeApp = createAppAsyncThunk<void, void>(`${slice.name}/initializeApp`,
+//   async(_, thunkAPI) => {
+//   const {dispatch, rejectWithValue} = thunkAPI
+//   try {
+//     const res = await authAPI.me();
+//     if (res.data.resultCode === 0) {
+//       return undefined;
+//     } else {
+//       return rejectWithValue(null)
+//     }
+//   }
+//   catch (e) {
+//     handleServerNetworkError(e, dispatch);
+//     return rejectWithValue(null);
+//   }
+//   finally {
+//     dispatch(appActions.setAppInitialized({ isInitialized: true}))
+//   }
+// })
+export const initializeApp = createAppAsyncThunk<{
+  isLoggedIn: boolean
+}, undefined>('auth/initializeApp', (_, thunkAPI) => {
+  const { dispatch, rejectWithValue } = thunkAPI;
+  return thunkTryCatch(thunkAPI, async () => {
     const res = await authAPI.me();
     if (res.data.resultCode === 0) {
-      return undefined;
+      return { isLoggedIn: true };
     } else {
-      return rejectWithValue(null)
+      return rejectWithValue(null);
     }
-  }
-  catch (e) {
-    handleServerNetworkError(e, dispatch);
-    return rejectWithValue(null);
-  }
-  finally {
-    dispatch(appActions.setAppInitialized({ isInitialized: true}))
-  }
-})
+  }).finally(() => {
+    dispatch(appActions.setAppInitialized({ isInitialized: true }));
+  });
+});
 
 
 export const authReducer = slice.reducer;
 export const authActions = slice.actions;
-export const authThunks = { login };
+export const authThunks = { login,
+  initializeApp() {
+
+  }
+};
