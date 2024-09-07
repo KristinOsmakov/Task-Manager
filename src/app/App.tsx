@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useAppDispatch } from "common/hooks"
+import React, { useEffect } from "react"
+import { useSelector } from "react-redux"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import {
   AppBar,
   Button,
@@ -10,45 +11,36 @@ import {
   LinearProgress,
   Toolbar,
   Typography,
-} from "@mui/material";
-import { Menu } from "@mui/icons-material";
-import { Login } from "features/auth/Login";
-import { authThunks, initializeApp, logout } from "features/auth/auth.reducer";
-import "./App.css";
-import { TodolistsList } from "features/TodolistsList/TodolistsList";
-import { ErrorSnackbar } from "common/components";
-import { useAppDispatch } from "common/hooks";
-import { selectIsLoggedIn } from "features/auth/auth.selectors";
-import { selectAppStatus, selectIsInitialized } from "app/app.selectors";
-import { bindActionCreators } from "@reduxjs/toolkit";
+} from "@mui/material"
+import { Menu } from "@mui/icons-material"
+import "./App.css"
+import { ErrorSnackbar } from "common/components"
+import { authThunks, selectIsLoggedIn } from "../features/auth/model/authSlice"
+import { Login } from "../features/auth/ui/login/Login"
+import { TodolistsList } from "features/todolistsList/ui/TodolistsList"
+import { selectIsInitialized, selectStatus } from "./appSlice"
 
 function App() {
-  const status = useSelector(selectAppStatus);
-  const isInitialized = useSelector(selectIsInitialized);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const status = useSelector(selectStatus)
+  const isInitialized = useSelector(selectIsInitialized)
+  const isLoggedIn = useSelector(selectIsLoggedIn)
 
-  const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch()
+
   useEffect(() => {
-    const init = bindActionCreators(initializeApp, dispatch)
-    init()
-
-    dispatch(initializeApp())
+    dispatch(authThunks.initializeApp())
   }, [])
 
-  // useEffect(() => {
-  //   dispatch(initializeApp());
-  // }, []);
-
-  const logoutHandler = useCallback(() => {
-    dispatch(logout());
-  }, []);
+  const logoutHandler = () => {
+    dispatch(authThunks.logout())
+  }
 
   if (!isInitialized) {
     return (
       <div style={{ position: "fixed", top: "30%", textAlign: "center", width: "100%" }}>
         <CircularProgress />
       </div>
-    );
+    )
   }
 
   return (
@@ -77,7 +69,7 @@ function App() {
         </Container>
       </div>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
