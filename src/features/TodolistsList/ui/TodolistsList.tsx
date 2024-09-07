@@ -1,6 +1,5 @@
 import { Grid, Paper } from "@mui/material"
 import { AddItemForm } from "common/components"
-import { TaskStatuses } from "common/enums"
 import { useAppDispatch } from "common/hooks"
 import React, { useCallback, useEffect } from "react"
 import { useSelector } from "react-redux"
@@ -32,13 +31,6 @@ export const TodolistsList = () => {
     dispatch(tasksThunks.addTask({ title, todolistId }))
   }, [])
 
-  const changeStatus = useCallback(function (taskId: string, status: TaskStatuses, todolistId: string) {
-    dispatch(tasksThunks.updateTask({ taskId, domainModel: { status }, todolistId }))
-  }, [])
-
-  const changeTaskTitle = useCallback(function (taskId: string, title: string, todolistId: string) {
-    dispatch(tasksThunks.updateTask({ taskId, domainModel: { title }, todolistId }))
-  }, [])
 
   const changeFilter = useCallback(function (filter: FilterValuesType, id: string) {
     dispatch(todolistsActions.changeTodolistFilter({ id, filter }))
@@ -78,9 +70,9 @@ export const TodolistsList = () => {
                   // removeTask={removeTask}
                   changeFilter={changeFilter}
                   addTask={addTask}
-                  changeTaskStatus={changeStatus}
+                  // changeTaskStatus={changeStatus}
                   removeTodolist={removeTodolist}
-                  changeTaskTitle={changeTaskTitle}
+                  // changeTaskTitle={changeTaskTitle}
                   changeTodolistTitle={changeTodolistTitle}
                 />
               </Paper>
