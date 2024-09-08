@@ -6,7 +6,7 @@ import { TaskStatuses } from "common/enums"
 import { TaskType } from "features/todolistsList/api/tasksApi.types";
 import { useAppDispatch } from "common/hooks";
 import { tasksThunks } from "features/todolistsList/model/tasksSlice";
-
+import s from 'features/todolistsList/ui/Todolist/Tasks/Task/Task.module.css'
 
 type TaskPropsType = {
   task: TaskType
@@ -14,16 +14,16 @@ type TaskPropsType = {
 }
 
 
-
 export const Task = (props: TaskPropsType) => {
   const dispatch = useAppDispatch()
 
-  const onClickHandler = () => {
+  const removeTaskHandler = () => {
     dispatch(tasksThunks.removeTask({ taskId: props.task.id, todolistId: props.todolistId }));
     }
 
 
-  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+
+  const changeTaskStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
     let status = e.currentTarget.checked ? TaskStatuses.Completed : TaskStatuses.New
       dispatch(
         tasksThunks.updateTask({
@@ -33,20 +33,20 @@ export const Task = (props: TaskPropsType) => {
     }
 
 
-  const onTitleChangeHandler = (newValue: string) => {
+  const changeTaskTitleHandler = (newValue: string) => {
       dispatch(
         tasksThunks.updateTask({
         taskId: props.task.id,
         domainModel: { title: newValue },
         todolistId: props.todolistId }))
     }
-
+  const isTaskComplete = props.task.status === TaskStatuses.Completed
   return (
-    <div key={props.task.id} className={props.task.status === TaskStatuses.Completed ? "is-done" : ""}>
-      <Checkbox checked={props.task.status === TaskStatuses.Completed} color="primary" onChange={onChangeHandler} />
+    <div key={props.task.id} className={isTaskComplete ? s.isDone : ""}>
+      <Checkbox checked={isTaskComplete} color="primary" onChange={changeTaskStatusHandler} />
 
-      <EditableSpan value={props.task.title} onChange={onTitleChangeHandler} />
-      <IconButton onClick={onClickHandler}>
+      <EditableSpan value={props.task.title} onChange={changeTaskTitleHandler} />
+      <IconButton onClick={removeTaskHandler}>
         <Delete />
       </IconButton>
     </div>
