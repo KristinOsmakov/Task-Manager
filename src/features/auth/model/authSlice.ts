@@ -55,20 +55,19 @@ const logout = createAppAsyncThunk<{ isLoggedIn: boolean }, void>(`${slice.name}
 
 const initializeApp = createAppAsyncThunk<{ isLoggedIn: boolean }, void>(
   `${slice.name}/initializeApp`,
-  (_, thunkAPI) => {
-    const { dispatch, rejectWithValue } = thunkAPI
-    return thunkTryCatch(thunkAPI, async () => {
+  async (_, { rejectWithValue, dispatch} ) => {
       const res = await authAPI.me()
+        .finally(() => {
+        dispatch(appActions.setAppInitialized({ isInitialized: true }))
+      })
       if (res.data.resultCode === ResultCode.Success) {
         return { isLoggedIn: true }
       } else {
         return rejectWithValue(res.data)
       }
-    }).finally(() => {
-      dispatch(appActions.setAppInitialized({ isInitialized: true }))
-    })
   },
 )
+
 
 export const authReducer = slice.reducer
 export const authThunks = { login, logout, initializeApp }

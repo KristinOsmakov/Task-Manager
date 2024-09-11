@@ -1,4 +1,6 @@
 import { createSlice, isFulfilled, isPending, isRejected, PayloadAction } from "@reduxjs/toolkit";
+import { todolistsThunks } from "features/todolistsList/model/todolistsSlice";
+import { tasksThunks } from "features/todolistsList/model/tasksSlice";
 
 const slice = createSlice({
   name: "app",
@@ -22,7 +24,12 @@ const slice = createSlice({
     builder
       .addMatcher(isPending, (state) => {state.status = 'loading'} )
       .addMatcher(isFulfilled, (state) => {state.status = 'succeeded'} )
-      .addMatcher(isRejected, (state) => {state.status = 'failed'} )
+      .addMatcher(isRejected, (state, action: any) => {
+        state.status = 'failed'
+        if ((action.type === todolistsThunks.addTodolist.rejected.type) || action.type === tasksThunks.addTask.rejected.type)
+          return
+        state.error = action.error.message
+      } )
   },
 
   selectors: {
