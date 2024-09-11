@@ -75,7 +75,7 @@ const addTodolist = createAppAsyncThunk<{ todolist: TodolistType }, string>(
         return { todolist: res.data.data.item }
       } else {
         handleServerAppError(res.data, dispatch)
-        return rejectWithValue(null)
+        return rejectWithValue(res.data)
       }
     })
   },
@@ -89,7 +89,7 @@ const removeTodolist = createAppAsyncThunk<{ id: string }, string>(`${slice.name
     if (res.data.resultCode === ResultCode.Success) {
       return { id }
     } else {
-      handleServerAppError(res.data, dispatch)
+      handleServerAppError(res.data, dispatch, false)
       return rejectWithValue(null)
     }
   })

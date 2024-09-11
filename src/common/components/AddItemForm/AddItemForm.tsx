@@ -19,6 +19,7 @@ export const AddItemForm = React.memo(function ({ addItem, disabled = false }: A
         .then(unwrapResult)
         .then( () => {
         setTitle('')
+          setError('')
       }).catch((err: BaseResponse)=>{
         setError(err.messages[0])
       })

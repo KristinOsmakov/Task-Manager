@@ -29,6 +29,7 @@ export const Todolist = (props: Props) => {
     dispatch(tasksThunks.fetchTasks(props.todolist.id))
   }, [])
 
+
   const addTask = (title: string) => {
       return dispatch(tasksThunks.addTask({ title, todolistId: props.todolist.id }))
     }
