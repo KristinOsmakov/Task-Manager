@@ -41,7 +41,7 @@
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
   },
-  
+  "homepage": "https://KristinOsmakov.github.io/TODOLIST",
   "eslintConfig": {
     "extends": "react-app"
   },
